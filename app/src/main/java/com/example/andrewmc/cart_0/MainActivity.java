@@ -18,6 +18,10 @@ public class MainActivity extends Activity {
 
     String url = "http://10.0.1.120/take_command.php";
     String start_command;
+    String retrieve_command;
+    String push_command;
+    String stop_command;
+    String wipe_command;
 
     EditText start_et;
     ProgressDialog PD;
@@ -34,7 +38,7 @@ public class MainActivity extends Activity {
         start_et = (EditText) findViewById(R.id.start_et_id);
     }
 
-    public void insert(View v) {
+    public void start(View v) {
         PD.show();
         start_command = start_et.getText().toString();
 
@@ -61,6 +65,150 @@ public class MainActivity extends Activity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("start_command", start_command);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        MyApplication.getInstance().addToReqQueue(postRequest);
+    }
+
+    public void retrieve(View v) {
+        PD.show();
+        retrieve_command = start_et.getText().toString();
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        PD.dismiss();
+                        start_et.setText("");
+                        Toast.makeText(getApplicationContext(),
+                                "Command sent successfully.",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                PD.dismiss();
+                Toast.makeText(getApplicationContext(),
+                        "Failed to send command", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("retrieve_command", retrieve_command);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        MyApplication.getInstance().addToReqQueue(postRequest);
+    }
+
+    public void push(View v) {
+        PD.show();
+        push_command = start_et.getText().toString();
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        PD.dismiss();
+                        start_et.setText("");
+                        Toast.makeText(getApplicationContext(),
+                                "Command sent successfully.",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                PD.dismiss();
+                Toast.makeText(getApplicationContext(),
+                        "Failed to send command", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("push_command", push_command);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        MyApplication.getInstance().addToReqQueue(postRequest);
+    }
+
+    public void stop(View v) {
+        PD.show();
+        stop_command = start_et.getText().toString();
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        PD.dismiss();
+                        start_et.setText("");
+                        Toast.makeText(getApplicationContext(),
+                                "Command sent successfully.",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                PD.dismiss();
+                Toast.makeText(getApplicationContext(),
+                        "Failed to send command", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("stop_command", stop_command);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        MyApplication.getInstance().addToReqQueue(postRequest);
+    }
+
+    public void wipe(View v) {
+        PD.show();
+        wipe_command = start_et.getText().toString();
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        PD.dismiss();
+                        start_et.setText("");
+                        Toast.makeText(getApplicationContext(),
+                                "Command sent successfully.",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                PD.dismiss();
+                Toast.makeText(getApplicationContext(),
+                        "Failed to send command", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("wipe_command", wipe_command);
 
                 return params;
             }
