@@ -10,14 +10,14 @@
     tools:context="com.pavan.androidphp.MainActivity" >
 
     <EditText
-        android:id="@+id/item_et_id"
+        android:id="@+id/start_et_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
         android:ems="10"
-        android:hint="Enter Item Name.." >
+        android:hint="Enter Command" >
 
         <requestFocus />
     </EditText>
@@ -26,19 +26,19 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/item_et_id"
+        android:layout_below="@+id/start_et_id"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="Insert"
+        android:text="Start"
         android:onClick="insert" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
+        android:text="Read Command Table"
+        android:onClick="read"
         android:layout_centerVertical="true"
-        android:text="Read"
-        android:onClick="read" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
