@@ -24,14 +24,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 public class ReadData extends ListActivity {
 
-    String url = "http://10.0.1.120/read_allorder.php";
+    String url = "http://10.0.1.120/read_allCommand.php";
     ArrayList<HashMap<String, String>> Item_List;
     ProgressDialog PD;
     ListAdapter adapter;
 
     // JSON Node names
-    public static final String ITEM_ID = "id";
-    public static final String ITEM_NAME = "item";
+    public static final String ITEM_ID = "Id";
+    public static final String ITEM_NAME = "Start";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

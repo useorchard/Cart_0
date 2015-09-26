@@ -16,10 +16,10 @@ package com.example.andrewmc.cart_0;
 
 public class MainActivity extends Activity {
 
-    String url = "http://10.0.1.120/take_order.php";
-    String item_name;
+    String url = "http://10.0.1.120/take_command.php";
+    String start_command;
 
-    EditText item_et;
+    EditText start_et;
     ProgressDialog PD;
 
     @Override
@@ -31,21 +31,21 @@ public class MainActivity extends Activity {
         PD.setMessage("Loading.....");
         PD.setCancelable(false);
 
-        item_et = (EditText) findViewById(R.id.item_et_id);
+        start_et = (EditText) findViewById(R.id.start_et_id);
     }
 
     public void insert(View v) {
         PD.show();
-        item_name = item_et.getText().toString();
+        start_command = start_et.getText().toString();
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         PD.dismiss();
-                        item_et.setText("");
+                        start_et.setText("");
                         Toast.makeText(getApplicationContext(),
-                                "Data Inserted Successfully",
+                                "Command sent successfully.",
                                 Toast.LENGTH_SHORT).show();
 
                     }
@@ -54,13 +54,13 @@ public class MainActivity extends Activity {
             public void onErrorResponse(VolleyError error) {
                 PD.dismiss();
                 Toast.makeText(getApplicationContext(),
-                        "failed to insert", Toast.LENGTH_SHORT).show();
+                        "Failed to send command", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("item_name", item_name);
+                params.put("start_command", start_command);
 
                 return params;
             }
