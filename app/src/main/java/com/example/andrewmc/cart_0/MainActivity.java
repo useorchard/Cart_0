@@ -16,6 +16,8 @@ package com.example.andrewmc.cart_0;
 
 public class MainActivity extends Activity {
 
+
+
     String url = "http://10.0.1.120/take_command.php";
     String start_command;
     String retrieve_command;
@@ -220,6 +222,11 @@ public class MainActivity extends Activity {
 
     public void read(View v) {
         Intent read_intent = new Intent(MainActivity.this, ReadData.class);
+        startActivity(read_intent);
+    }
+
+    public void barcode(View v) {
+        Intent read_intent = new Intent(MainActivity.this, ScanditSDKDemoSimple.class);
         startActivity(read_intent);
     }
 
