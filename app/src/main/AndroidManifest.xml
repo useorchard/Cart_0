@@ -40,11 +40,6 @@
             android:name=".UpdateDeleteData"
             android:label="@string/app_name" >
         </activity>
-        <activity
-            android:name=".ScanditSDKDemoSimple"
-            android:screenOrientation="sensorPortrait"
-            android:label="@string/app_name" >
-        </activity>
 
 
     </application>
